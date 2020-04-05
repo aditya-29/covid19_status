@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <meta charset=utf-8 />
+  <title>Covid19 -India</title>
+
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+
+	<style>
+
+		body { 
+            margin:0; padding:0; 
+        }
+
+    	.map { 
+            position: absolute; 
+            top:0; 
+            bottom:0;
+            width:100%;
+            height:width/2;
+        }
+
+	    .map-legend i {
+	        width: 18px;
+	        height: 18px;
+	        float: left;
+	        margin-right: 8px;
+	        opacity: 0.7;
+	    }
+	    .leaflet-popup-close-button {
+	        display: none;
+	    }
+	    .leaflet-popup-content-wrapper {
+	        pointer-events: none;
+	    }
+
+        .pie-graph, .bar-graph {
+
+	    	width: 250px;
+	    	height: 250px;
+            
+	    	border: thin solid grey;
+            background: black;
+            opacity: 1;
+            text-align: center;
+	    }
+
+        .filter-ui {
+            background: black;
+            color: white;
+            position:absolute;
+            top: 50px;
+            left: 10px;
+            z-index: 100;
+            padding: 10px;
+            border: thin solid grey;
+            border-radius:3px;
+        }
+
+        .census-banner a {
+            background: black;
+            color: #ffd700;
+            position:absolute;
+            top: 303px;
+            left: 710px;
+            z-index: 1;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 24px;
+            border: thin solid grey;
+            text-decoration: none;
+            border-radius:3px;
+        }
+
+        .census-banner a:hover {
+            text-decoration: underline;
+        }
+
+	</style>
+
+</head>
+
+<body>
+
+
+
+<div id='map' class='map'> </div>
+
+<script id="popup-template" type="text/template">
+    <h2>{{state}}</h2>
+    <strong>Capital: </strong>{{capital}} <br>
+    <strong>Population: </strong>{{population}} <br>
+    <strong>Area: </strong>{{area}} square kilometer <br>
+    <strong>Density: {{density}}</strong> people per square kilometer <br>
+    <!-- <strong>Growth: </strong>{{growth}} % <br> -->
+    <strong id="ConfirmedCases">Cases: {{ConfirmedCases}}</strong> number of confirmed cases <br>
+</script>
+
+<!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script type="text/javascript" src="census-2011.js"></script>
+<script type = "text/javascript" src = "bundle.js"></script>
+
+
+</body>
+</html>
